@@ -15,7 +15,7 @@ This Zero-Trust Blueprint defines how QR-BATS secures high-value digital banking
 
 ## Architecture (At a Glance)
 
-![This is the QR-BATS system architecture.](ArchX01.png)
+![This is the QR-BATS system architecture.](Archx01.png)
 
 - PEP: Enforces decisions at API Gateway and service layers.
 - PDP: Evaluates policies (OPA/Rego) with real-time context.
