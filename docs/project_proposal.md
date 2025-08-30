@@ -100,7 +100,7 @@ Top-3 risks (Quantum algorithm vulnerability, Biometric spoofing/deepfakes, Key 
 
 ---
 
-## Getting Started (Dev)
+## Getting Started (Developed During The Dev Timeline) 
 - Mobile (React Native/Flutter): Capture liveness biometrics → sign transaction hash via PQC → send to API Gateway.
 - Backend (Flask/FastAPI or Spring Boot): Validate PQC signature, verify biometric attestation, enforce OPA policies, update core banking.
 - Basic steps:
