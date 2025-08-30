@@ -15,25 +15,23 @@ This Zero-Trust Blueprint defines how QR-BATS secures high-value digital banking
 
 ## Architecture (At a Glance)
 
-```mermaid
+```mermaid---
+config:
+  layout: elk
+---
 flowchart LR
-  UA[User] -->|FIDO + Biometric| APP[Mobile App]
-  APP -->|TLS 1.3 + mTLS| APIGW[API Gateway (PEP)]
-  APIGW --> PEP[Policy Enforcement Point]
-  PEP -->|input context| PDP[Policy Decision Point (OPA)]
-  PEP --> TX[Transaction Service]
-  TX --> BIO[Biometric Verification]
-  TX --> PQC[PQC Verification Service]
-  TX --> RISK[Risk Engine / UEBA]
-  TX --> DB[(Encrypted Data Stores)]
-  PDP -->|permit/deny + obligations| PEP
-  TX --> SIEM[SIEM/Monitoring]
-  KMS[KMS/HSM] --> TX
-  KMS --> APIGW
-  subgraph Device Posture
-    MDM[MDM/Health Attestation]
+ subgraph subGraph0["Device Posture"]
+        MDM["MDM Health Attestation"]
   end
-  APP --> MDM
+    UA["User"] -- FIDO + Biometric --> APP["Mobile App"]
+    APP -- "TLS 1.3 + mTLS" --> APIGW["API Gateway PEP"]
+    APIGW --> PEP["Policy Enforcement Point"]
+    PEP -- input context --> PDP["Policy Decision Point OPA"]
+    PEP --> TX["Transaction Service"]
+    TX --> BIO["Biometric Verification"] & PQC["PQC Verification Service"] & RISK["Risk Engine UEBA"] & DB[("Encrypted Data Stores")] & SIEM["SIEM Monitoring"]
+    PDP -- permit/deny + obligations --> PEP
+    KMS["KMS HSM"] --> TX & APIGW
+    APP --> MDM
 ```
 
 - PEP: Enforces decisions at API Gateway and service layers.
