@@ -46,7 +46,7 @@ This future-proofs the transaction against quantum attacks while ensuring it is 
 ## 🏗️ Architecture Diagram
 This diagram illustrates the end-to-end flow of the QR-BATS system, from the user's device to the bank's core infrastructure.
 
-![Architecture Diagram](https://github.com/the-ai-developer/QR-BatsXBank0fBaroda/blob/main/docs/ArchX02.png))
+![Architecture Diagram](https://github.com/the-ai-developer/QR-BatsXBank0fBaroda/blob/main/docs/ArchX02.png)
 
 ## 🔐 Zero-Trust Blueprint
 Our architecture is built on the core principle of "never trust, always verify" for every single high-value transaction.
